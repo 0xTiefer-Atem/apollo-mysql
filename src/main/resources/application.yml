@@ -1,0 +1,49 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: config-client-apollo
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    druid:
+#      name: druid-default-datasource
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://47.107.64.157:3306/share?characterEncoding=utf8&serverTimezone=GMT%2B8
+#      username: root
+#      password: 123123
+#      initial-size: 5
+#      max-active: 30
+#      min-idle: 5
+#      filter:
+#        stat:
+#          enabled: true
+#          log-slow-sql: true
+#          merge-sql: true
+#          slow-sql-millis: 30000 #单位毫秒
+#          connection-stack-trace-enable: true
+#        config:
+#          enabled: true
+#      query-timeout: 1800
+#      max-wait: 60000
+#      validation-query: select 1 from dual
+#      pool-prepared-statements: true #mysql5.5以上或者oracle建议开启
+#      testWhileIdle: true
+
+apollo:
+  bootstrap:
+    enabled: true
+    namespaces: application,mysql,apollo
+  meta: http://localhost:8080
+
+#mybatis配置
+mybatis:
+  configuration:
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: true
+    cache-enabled: true
+    call-setters-on-nulls: true
+    jdbc-type-for-null: NULL
+  mapper-locations: classpath:mapper/*.xml
+
+
