@@ -132,4 +132,19 @@
     <select id="exeSelectSql" resultType="map" parameterType="java.lang.String">
         ${sql}
     </select>
+
+    <select id="selectColumnInfo" resultType="hashmap">
+        select * from
+        information_schema.columns
+        where
+        table_schema= #{dataBase}
+        and
+        table_name= #{table}
+        and
+        column_name = #{column};
+    </select>
+
+    <update id="changeDataBase">
+        ${sql}
+    </update>
 </mapper>
